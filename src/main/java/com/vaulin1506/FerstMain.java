@@ -2,14 +2,15 @@ package com.vaulin1506;
 
 
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.selected;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byName;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static utils.utils.getRandomInt;
 
@@ -18,6 +19,7 @@ public class FerstMain {
 
     String mobName = "Гоблин",
     mobDanger = "1/4  - 50 опыта";
+    String mobHit;
 
     @BeforeAll
     static void setUp(){
@@ -38,6 +40,15 @@ public class FerstMain {
         $(".btn-green").click();
         //$(".if-wrapper__live_search").setValue(mobName);
         //if if-live_search if-empty has_icon
+        $(".item-link").shouldHave(text(mobName));
+        $(".svg.svg-16 svg--d6").click();
+
+        //$("data-type", "middle").getSelectedValue(mobHit);
+        //$(".params > li:nth-child(3)").shouldHave(text("7"));
+                //(new int [mobHit]);
+        //System.out.println(mobHit);
+
+
     }
     public void rollD () {
         int d20 = getRandomInt(1, 20);
